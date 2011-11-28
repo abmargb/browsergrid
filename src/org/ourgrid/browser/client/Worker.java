@@ -142,8 +142,9 @@ public class Worker implements EntryPoint {
 	};
 	
 	public native void printMessage(String message) /*-{
-		$wnd.output.value += message;
-		$wnd.output.scrollTop = $wnd.output.scrollHeight;
+		var textarea = $doc.getElementById('output');
+		textarea.value += message;
+		textarea.scrollTop = textarea.scrollHeight;
 	}-*/;
 	
 }

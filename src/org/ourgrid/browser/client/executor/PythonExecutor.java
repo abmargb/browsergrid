@@ -6,8 +6,10 @@ public class PythonExecutor {
 	public native void initialize() /*-{
   		$wnd.Python.initialize(null, function(chr) {
         	if (chr !== null) {
-        		$wnd.output.value += String.fromCharCode(chr);
-        		$wnd.output.scrollTop = $wnd.output.scrollHeight;
+        		var textarea = $doc.getElementById('output');
+        	
+        		textarea.value += String.fromCharCode(chr);
+        		textarea.scrollTop = textarea.scrollHeight;
         	}
         });
   	}-*/;
