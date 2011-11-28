@@ -103,7 +103,7 @@ public class Worker implements EntryPoint {
 			
 			@Override
 			public void onFailure(Throwable caught) {
-				
+				printMessage(caught.getMessage());
 			}
 		});
 	}
@@ -136,6 +136,7 @@ public class Worker implements EntryPoint {
 			
 			@Override
 			public void onFailure(Throwable caught) {
+				printMessage(caught.getMessage());
 			}
 		});
 	};

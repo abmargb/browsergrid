@@ -28,7 +28,7 @@ public class WorkerServiceImpl extends RemoteServiceServlet implements
 		
 		Thread.sleep(2000);
 		
-		File jobsDir = new File(new File(getServletContext().getContextPath()).getAbsolutePath() + JOBS_DIR);
+		File jobsDir = new File(getServletContext().getRealPath(JOBS_DIR));
 		
 		for (File jobDir : jobsDir.listFiles()) {
 			
@@ -67,8 +67,8 @@ public class WorkerServiceImpl extends RemoteServiceServlet implements
 	public void sendResults(Execution execution, List<ResultFile> outputs)
 			throws Exception {
 		
-		String wuPath = new File(getServletContext().getContextPath()).getAbsolutePath() + JOBS_DIR + 
-				"/" + execution.getJobName() + "/" + execution.getId();
+		String wuPath = new File(getServletContext().getRealPath(JOBS_DIR + 
+				"/" + execution.getJobName() + "/" + execution.getId())).getAbsolutePath();
 		
 		for (ResultFile resultFile : outputs) {
 			File outputFile = new File(wuPath + "/" + resultFile.getFileName());
