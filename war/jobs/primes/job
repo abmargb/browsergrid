@@ -1,0 +1,3 @@
+inputs=args.py
+app=script.py
+outputs=output
